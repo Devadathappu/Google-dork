@@ -112,6 +112,27 @@
                 `site:${site} intext:"user" filetype:php intext:"account" inurl:/admin`,
                 `site:${site} intitle:"Index of" intext:"php" site:*.com.*`,
                 `site:${site} intitle:"Index of" intext:"config" site:*.com.*`
+                `site:${site} "email" | "username" | "password" filetype:xlsx`,  
+                `site:${site} "login details" | "credentials" filetype:txt  `,
+                `site:${site} "ftp" intext:"login" | "password"  `,
+                `site:${site} "private_key" OR "secret_key"  `,
+                `site:${site} filetype:json "api_key"`,  
+                `site:${site} ext:js "apiKey" | "token"  `,
+                `site:${site} filetype:config | filetype:conf | filetype:cnf  `,
+                `site:${site} ext:ini "[database]" `,
+                `site:${site} ext:log "error" | "warning"  `,
+                `site:${site} ext:backup | ext:bak | ext:old  `,
+                `site:${site} "passport" | "driver's license" filetype:pdf  `,
+                `site:${site} "contact list" | "address book" filetype:xls  `,
+                `site:${site} filetype:pdf "insurance" | "health" `, 
+                `site:${site} filetype:xls "medical records"  `,
+                `site:${site} filetype:xls "salary" | "income" `, 
+                `site:${site} "credit card" | "bank account" filetype:pdf  `,
+                `site:${site} "debug.log" | "error.log"  `,
+                `site:${site} "site configuration" | "site debug"  `,
+                `site:${site} "confidential" filetype:doc  `,
+                `site:${site} filetype:msg "email" | "communication"  `,
+                `site:${site} "internal use only" | "do not distribute" | "sensitive data"  
 
             ];
 
