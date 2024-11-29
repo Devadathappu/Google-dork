@@ -49,6 +49,22 @@
         button:hover {
             background-color: #0056b3;
         }
+        .output {
+            margin-top: 20px;
+        }
+        .query-box {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: monospace;
+            color: #007bff;
+            cursor: pointer;
+        }
+        .query-box:hover {
+            background-color: #e1e1e1;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +74,8 @@
         <input type="text" id="site" placeholder="Enter site">
 
         <button onclick="generateDorks()">Generate Dorks</button>
+
+        <div class="output" id="output"></div>
     </div>
 
     <script>
@@ -89,10 +107,13 @@
                 `site:${site} filetype:cfg | filetype:cnf`
             ];
 
+            let outputHTML = "<h2>Generated Google Dorks</h2>";
             dorks.forEach(dork => {
                 const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(dork)}`;
-                window.open(googleUrl, '_blank');
+                outputHTML += `<div class="query-box" onclick="window.open('${googleUrl}', '_blank')">${dork}</div>`;
             });
+
+            document.getElementById('output').innerHTML = outputHTML;
         }
     </script>
 </body>
