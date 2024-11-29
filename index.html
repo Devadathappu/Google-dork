@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Dorking Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input, textarea {
+            width: 100%;
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+        }
+        .query-box {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Google Dorking Generator</h1>
+        <label for="site">Enter Target Site (e.g., *.nasa.gov):</label>
+        <input type="text" id="site" placeholder="Enter site">
+
+        <button onclick="generateDorks()">Generate Dorks</button>
+
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        function generateDorks() {
+            const site = document.getElementById('site').value;
+            if (!site) {
+                alert("Please enter a site.");
+                return;
+            }
+
+            const dorks = [
+                `site:${site} inurl:login`,
+                `site:${site} intitle:"index of"`,
+                `site:${site} filetype:xls "email"`,
+                `site:${site} filetype:pdf "confidential"`,
+                `site:${site} inurl:admin`,
+                `site:${site} "api_key" | "token"`,
+                `site:${site} filetype:log "error"`,
+                `site:${site} inurl:staging | inurl:test`,
+                `site:${site} ext:env`,
+                `site:${site} filetype:bak | filetype:backup`,
+                `site:${site} "SSN" | "Social Security"`,
+                `site:${site} "username" | "password" filetype:txt`,
+                `site:${site} inurl:debug`,
+                `site:${site} "confidential" | "restricted"`,
+                `site:${site} filetype:sql | filetype:db`,
+                `site:${site} inurl:portal`,
+                `site:${site} intitle:"employee list"`,
+                `site:${site} filetype:cfg | filetype:cnf`
+            ];
+
+            let outputHTML = "<h2>Generated Google Dorks</h2>";
+            dorks.forEach(dork => {
+                outputHTML += `<div class="query-box">${dork}</div>`;
+            });
+
+            document.getElementById('output').innerHTML = outputHTML;
+        }
+    </script>
+</body>
+</html>
